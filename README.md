@@ -1,6 +1,6 @@
 Open Terminal (for Mac and Linux users) or the command prompt (for Windows users)
 
-1. git clonegit@gitlab.speroteck.com:internal/layout-srubets.git
+1. git clone git@gitlab.speroteck.com:internal/layout-srubets.git
 2. npm install
 
 In project are used two folder:

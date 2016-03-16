@@ -33,7 +33,11 @@
   }
 }
 
-
+.header_list {
+  @media (max-width: 900px) {
+    margin-bottom: 10px;
+  }
+}
 .header_item {
   position: relative;
   display: inline-block;
@@ -66,6 +70,7 @@
   padding: 42px 5px;
   text-transform: uppercase;
   text-decoration: none;
+  transition: 0.3s;
 
   @media (max-width: 900px) {
     padding: 10px 5px;
