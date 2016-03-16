@@ -1,5 +1,10 @@
 header.header
-    .logo
-        a.logo_link
-            img(src="" alt="logo")
-            span(class="logo_text") logo
+  .container.clearfix
+    .header_logo
+      img(src="/assets/img/logo.png" alt="bazinger").header_img
+      h1.header_text bezinger
+
+    .header_menu
+      - var list = ['home', 'features', 'gallery', 'video', 'prices', 'testimonials', 'download', 'contact']
+        +list(list, 'header', 0)
+      span.hamburger

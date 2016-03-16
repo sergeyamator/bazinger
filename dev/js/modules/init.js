@@ -1,6 +1,8 @@
 ;(function() {
-    /* ------- plugins init ------- */
+  'use strict';
 
-    console.log('works');
+  if ($('.header_list').length) {
+    headerMenu.init();
+  }
 
 })();

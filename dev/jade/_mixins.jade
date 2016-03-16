@@ -1,14 +1,14 @@
 
 mixin list(items, className, active)
-    div(class="#{className}")
-        ul(class="#{className}__list")
+    nav(class="#{className}_nav")
+        ul(class="#{className}_list")
             each item, key in items
                 if key == active
-                    li(class="#{className}__item #{className}__item--active")
-                        a(href="#" class="#{className}__link")= item
+                    li(class="#{className}_item #{className}_item--active")
+                        a(href="#" class="#{className}_link")= item
                 else
-                    li(class="#{className}__item")
-                        a(href="#" class="#{className}__link")= item
+                    li(class="#{className}_item")
+                        a(href="#" class="#{className}_link")= item
 
 
 

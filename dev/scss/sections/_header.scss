@@ -1,6 +1,108 @@
 .header {
-  background: green;
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* ------ logo ------ */
+.header_logo {
+  float: left;
+  margin: 15px 0;
+}
+
+.header_text {
+  @extend %hide-text;
+}
+
+/* ------ navigation ----- */
+.header_menu {
+  float: right;
+  transition: 0.5s;
+  cursor: pointer;
+
+}
+
+.header_nav {
+  height: 0;
+  overflow: hidden;
+  &.active {
+    height: auto;
+  }
+
+  @media (min-width: 900px) {
+    height: auto;
+  }
+}
+
+
+.header_item {
+  position: relative;
+  display: inline-block;
+  margin-left: 20px;
+  text-decoration: none;
+
+  &--active {
+      border-top: 2px solid #4bcaff;
+
+    @media (max-width: 900px) {
+      border-left: 2px solid #4bcaff;
+      border-top: none;
+    }
+  }
+
+  &--active a,
+  &:hover a{
+    color: #4bcaff;
+  }
+
+  @media (max-width: 900px) {
+    display: block;
+    margin-right: 30px;
+  }
+}
+
+.header_link {
+  @include font(13, $drod-reg, #fff);
+  display: inline-block;
+  padding: 42px 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  @media (max-width: 900px) {
+    padding: 10px 5px;
+  }
 }
 
 
 
+/* menu */
+.hamburger {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 40px;
+  transform: translateY(-50%);
+  width: 1.25em;
+  height: 0.8em;
+  margin-right: 0.3em;
+  border-top: 0.2em solid #fff;
+  border-bottom: 0.2em solid #fff;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0.3em;
+    left: 0;
+    width: 100%;
+    border-top: 0.2em solid #fff;
+  }
+
+  @media (max-width: 900px) {
+    display: block;
+  }
+}
+
+.header_nav {
+  @media (max-width: 900px) {
+    float: left;
+  }
+}

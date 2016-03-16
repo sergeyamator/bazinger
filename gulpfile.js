@@ -29,6 +29,7 @@ var paths = {
   js: {
     location: [
       'bower_components/jquery/dist/jquery.js',
+      'dev/js/modules/header-menu.js',
       'dev/js/modules/init.js'
     ],
     destination: 'prod/js'
@@ -87,13 +88,13 @@ gulp.task('sprite', function() {
 
 /* -------- images minification  -------- */
 gulp.task('img-min', function() {
-  return gulp.src('dev/img/**/*')
+  return gulp.src('dev/assets/img/**/*.png')
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{removeViewBox: false}],
       use: [pngquant()]
     }))
-    .pipe(gulp.dest('prod/img'));
+    .pipe(gulp.dest('prod/assets/img'));
 });
 
 /* -------- Assets clean ------- */
