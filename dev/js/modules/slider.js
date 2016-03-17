@@ -33,8 +33,11 @@ var Slider = (function($) {
   };
 
   Slider.prototype.renderControls = function() {
-    this.leftCtl = $('<a href="#" class="slider_control slider_control--left"></a>');
-    this.rigthtCtl = $('<a href="#" class="slider_control slider_control--right"></a>');
+    this.leftCtl = $('<a href="#" class="slider_control slider_control--left"> < </a>');
+    this.rigthtCtl = $('<a href="#" class="slider_control slider_control--right"> > </a>');
+
+    this.el.append(this.leftCtl);
+    this.el.append(this.rigthtCtl);
   };
 
   return Slider;
@@ -50,4 +53,3 @@ var sl         = new Slider({
   imgSrc: heroImgArr,
   controls: true
 });
-

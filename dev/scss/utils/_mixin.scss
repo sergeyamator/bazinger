@@ -64,16 +64,35 @@
   display: none!important; // for js
 }
 
+@mixin vcenter() {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin hcenter() {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
 @mixin rem-size($size) {
-  font-size: $size;
+  font-size: $size + px;
   font-size: ($size/16) + rem;
 }
 
 @mixin font($size, $font, $color) {
   font-family: $font;
-  font-size: $size;
+  font-size: $size + px;
   font-size: ($size/16) + rem;
-  line-height: $size + 2;
+  line-height: $size + 2 + px;
   line-height: (($size/16) + 0.125) + rem;
   color: $color;
 }
