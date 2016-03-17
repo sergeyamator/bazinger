@@ -3,6 +3,10 @@ html, body {
   font-family: $lato-black, sans-serif;
 }
 
+.wrapper {
+  height: 100%;
+}
+
 ul, ol {
   list-style-type: none;
   padding: 0;

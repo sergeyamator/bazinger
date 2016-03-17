@@ -30,6 +30,7 @@ var paths = {
     location: [
       'bower_components/jquery/dist/jquery.js',
       'dev/js/modules/header-menu.js',
+      'dev/js/modules/slider.js',
       'dev/js/modules/init.js'
     ],
     destination: 'prod/js'
@@ -75,13 +76,14 @@ gulp.task('concat-js', function() {
 
 /* -------- auto sprites  -------- */
 gulp.task('sprite', function() {
-  var spriteData = gulp.src('dev/img/icons/*.png')
+  var spriteData = gulp.src('dev/assets/img/icons/*.png')
     .pipe(spritesmith({
       imgName: 'sprite.png',
-      imgPath: '../img/sprite.png',
-      cssName: 'sprite.scss'
+      imgPath: '/assets/img/sprite.png',
+      cssName: 'utils/_sprite.scss',
+      algorithm: 'top-down'
     }));
-  spriteData.img.pipe(gulp.dest('dev/img/'));
+  spriteData.img.pipe(gulp.dest('dev/assets/img/'));
   spriteData.css.pipe(gulp.dest('dev/scss/'));
 });
 
@@ -125,7 +127,6 @@ gulp.task('watch', function() {
   gulp.watch('dev/scss/**/*.scss', ['sass-compile']);
   gulp.watch('dev/img/**/*', ['img-min']);
   gulp.watch('dev/js/modules/*.js', ['concat-js']);
-  gulp.watch('dev/assets/**/*', ['assets-clean', 'assets-copy']);
   gulp.watch([
     'prod/**/*.html',
     'prod/js/**/*.js',

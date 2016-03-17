@@ -1,0 +1,88 @@
+.hero {
+  min-height: 100%;
+  background: #0b97c4;
+}
+
+.hero_slogan {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 675px;
+}
+
+.hero_title {
+  @include font(48, $lato-hairline, #fff);
+  margin-bottom: 20px;
+
+  &--lighted {
+    font-family: $lato-bold;
+  }
+}
+
+.hero_text {
+  @include font(18, $lato-light, #fff);
+  margin-bottom: 45px;
+}
+
+.hero_buttons {
+  margin-bottom: 55px;
+}
+
+.hero_button {
+  @include font(15, $lato-bold, #fff);
+  display: inline-block;
+  padding: 22px 50px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  transition: 0.3s;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &:first-child {
+    margin-right: 40px;
+  }
+  
+  &:hover {
+    background: #4bcaff;
+    box-shadow: 0 5px 4px 1px darken(rgba(#3da8d5, 0.8), 10%);
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.hero_available-text {
+  @include font(15, $lato-light, #fff);
+  margin-right: 20px;
+  line-height: 45px;
+}
+
+.hero_available-text,
+.hero_available-os {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.hero_available-os {
+  @extend %hide-text;
+  transition: 0.2s;
+  cursor: pointer;
+
+  &--apple {
+    @include sprite($apple);
+    margin-right: 15px;
+
+    &:hover {
+      @include sprite($apple-hover);
+    }
+  }
+
+  &--android {
+    @include sprite($android);
+
+    &:hover {
+      @include sprite($android-hover);
+    }
+  }
+}

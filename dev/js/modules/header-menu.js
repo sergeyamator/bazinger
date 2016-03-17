@@ -1,4 +1,4 @@
-;(function() {
+;(function($) {
   'use strict';
 
   var me = {};
@@ -29,4 +29,4 @@
 
   }
   window.headerMenu = me;
-}());
+}(jQuery));
