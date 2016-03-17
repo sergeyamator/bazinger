@@ -3,53 +3,101 @@ var Slider = (function($) {
 
   function Slider(opt) {
     this.el     = opt.element;
+    this.items  = this.el.find('.slider_item');
     this.imgSrc = opt.imgSrc;
 
     this.renderList();
 
     if (opt.controls) this.renderControls();
+    if (opt.pager) this.renderPager();
   }
 
   /**
    * render list, item and img
    */
   Slider.prototype.renderList = function() {
-    var list = $('<ul class="slider_list clearfix"></ul>');
+    var src = this.imgSrc;
     this.el.addClass('slider');
 
-    $(this.imgSrc).each(function(item, val) {
-      var li = $('<li class="slider_item"></li>'),
-          img = $('<img>', {
-            src: val,
-            alt: item,
-            class: 'slider_img'
-          });
+    this.items.each(function(item) {
 
-      li.append(img);
-      list.append(li);
+      $(this).css({
+        'background-image': 'url(' + src[item] + ')'
+      });
+
     });
 
-    this.el.append(list);
   };
 
+  /**
+   * If opt.controls true render left and right controls
+   */
   Slider.prototype.renderControls = function() {
-    this.leftCtl = $('<a href="#" class="slider_control slider_control--left"> < </a>');
-    this.rigthtCtl = $('<a href="#" class="slider_control slider_control--right"> > </a>');
+    this.leftCtl   = $('<a href="#" data-direction="left" class="slider_control slider_control--left"> < </a>');
+    this.rigthtCtl = $('<a href="#" data-direction="right" class="slider_control slider_control--right"> > </a>');
 
     this.el.append(this.leftCtl);
     this.el.append(this.rigthtCtl);
+
+    /* -------- attach click  ------- */
+    $('.slider_control').on('click', this.changeSlide.bind(null, $('.slider_control')));
   };
+
+
+  /**
+   * If opt.pager true render pager dots control
+   */
+  Slider.prototype.renderPager = function() {
+    var pagerList = $('<ul class="slider_pager-list">');
+
+    this.items.each(function() {
+      var pageElement = $('<li class="slider_pager-item">' +
+        '<a href="#" class="slider_pager-link"></a></li>');
+
+      pagerList.append(pageElement);
+    });
+
+    this.el.append(pagerList);
+
+  };
+
+
+  /**
+   * change slide picture after click for arrow buttons
+   */
+
+  Slider.prototype.changeSlide = function(item, e) {
+    e.preventDefault();
+    if (item.hasClass('slider_control')) {
+
+      $(e.target).hasClass('slider_control--right') ?
+        showNextSlide() :
+        showPrevSlide();
+    }
+
+  };
+
+  Slider.prototype.showNextSlide = showNextSlide;
+
+  function showNextSlide() {
+    var currentSlide = $('.slider_item.active');
+
+    if (currentSlide.next().length) {
+      currentSlide.removeClass('active').next().addClass('active');
+    }
+
+
+  }
+
+  function showPrevSlide() {
+    var currentSlide = $('.slider_item.active');
+
+    if (currentSlide.prev().length) {
+      currentSlide.removeClass('active').prev().addClass('active');
+    }
+
+  }
 
   return Slider;
 
 }(jQuery));
-
-var heroImgArr = [
-  '/assets/img/hero-slider/1.png',
-  '/assets/img/hero-slider/2.png'
-];
-var sl         = new Slider({
-  element: $('[data-component="slider"]'),
-  imgSrc: heroImgArr,
-  controls: true
-});
