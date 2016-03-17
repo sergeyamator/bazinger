@@ -10,6 +10,7 @@
 .slider_item {
   position: absolute;
   background-size: cover;
+  transition: 0.3s;
 
   &.active {
     z-index: 5;
@@ -55,6 +56,11 @@
   &:first-child {
     margin-left: 0;
   }
+
+  &:hover a,
+  &.active a {
+    background: #4bcaff;
+  }
 }
 
 .slider_pager-link {
@@ -62,9 +68,4 @@
   display: inline-block;
   border: 1px solid #fff;
   transition: 0.3s;
-
-  &:hover,
-  &.active {
-    background: #4bcaff;
-  }
 }

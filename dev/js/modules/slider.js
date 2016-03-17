@@ -40,7 +40,10 @@ var Slider = (function($) {
     this.el.append(this.rigthtCtl);
 
     /* -------- attach click  ------- */
-    $('.slider_control').on('click', this.changeSlide.bind(null, $('.slider_control')));
+    $('.slider_control').on('click', function(e) {
+      var event = e;
+      Slider.prototype.changeSlide.call(Slider, $('.slider_control'), event);
+    });
   };
 
 
@@ -58,7 +61,6 @@ var Slider = (function($) {
     });
 
     this.el.append(pagerList);
-
   };
 
 
@@ -71,32 +73,43 @@ var Slider = (function($) {
     if (item.hasClass('slider_control')) {
 
       $(e.target).hasClass('slider_control--right') ?
-        showNextSlide() :
-        showPrevSlide();
+        Slider.prototype.showNextSlide() :
+        Slider.prototype.showPrevSlide();
     }
 
   };
 
-  Slider.prototype.showNextSlide = showNextSlide;
+  Slider.prototype.showNextSlide = function() {
+    var currentSlide = $('.slider_item.active'),
+        nextSlide    = currentSlide.next();
 
-  function showNextSlide() {
-    var currentSlide = $('.slider_item.active');
-
-    if (currentSlide.next().length) {
-      currentSlide.removeClass('active').next().addClass('active');
+    if (nextSlide.length) {
+      currentSlide.removeClass('active');
+      nextSlide.addClass('active');
     }
 
 
-  }
+    this.changePagerActive(nextSlide);
+  };
 
-  function showPrevSlide() {
-    var currentSlide = $('.slider_item.active');
+  Slider.prototype.showPrevSlide = function() {
+    var currentSlide = $('.slider_item.active'),
+        prevSlide    = currentSlide.prev();
 
-    if (currentSlide.prev().length) {
-      currentSlide.removeClass('active').prev().addClass('active');
+    if (prevSlide.length) {
+      currentSlide.removeClass('active');
+      prevSlide.addClass('active');
     }
 
-  }
+    this.changePagerActive(prevSlide);
+  };
+
+
+  Slider.prototype.changePagerActive = function(slide) {
+    var numberSlide = slide.index();
+
+    $('.slider_pager-item').eq(numberSlide).addClass('active').siblings().removeClass('active');
+  };
 
   return Slider;
 
