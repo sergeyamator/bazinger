@@ -30,6 +30,7 @@ var paths = {
     location: [
       'bower_components/jquery/dist/jquery.js',
       'dev/js/modules/header-menu.js',
+      'dev/js/modules/priceZoom.js',
       'dev/js/modules/slider.js',
       'dev/js/modules/init.js'
     ],
@@ -57,7 +58,7 @@ gulp.task('sass-compile', function() {
     .pipe(concat("main.min.css"))
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(sass({outputStyle: 'compressed'}))
-    //.pipe(autoprefixer())
+    .pipe(autoprefixer())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.scss.destination));
 });

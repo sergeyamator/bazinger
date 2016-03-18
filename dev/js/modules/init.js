@@ -1,10 +1,16 @@
 ;(function($) {
   'use strict';
 
+  /**
+   * Toggle active class on header menu
+   */
   if ($('.header_list').length) {
     headerMenu.init();
   }
 
+  /**
+   * url for background images for Slider
+   */
 
   if ($('[data-component="slider"]').length) {
 
@@ -26,6 +32,15 @@
       auto: true,
       autoTime: 3000
     });
+  }
+
+
+  /**
+   *
+   */
+
+  if ($('.package_list').length) {
+    priceZoom.init();
   }
 
 
