@@ -12,12 +12,13 @@ section.features
       }
     -
       icons = ['thumb_up', 'stay_primary_portrait', 'question_answer','chat_bubble_outline']
-    ul.features_list.clearfix
+    ul.features_list
       - var count=0
       each text, title in list
         li.features_item
-          .icon
-            i(class="material-icons features_icon")= icons[count]
-          .features_list-title= title
-          p.features_list-text= text
-          - count++
+          a.features_link(href="#")
+            .icon
+              i(class="material-icons features_icon")= icons[count]
+            .features_list-title= title
+            p.features_list-text= text
+            - count++

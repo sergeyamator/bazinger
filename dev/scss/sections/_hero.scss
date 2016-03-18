@@ -11,14 +11,21 @@
 .hero_slogan {
   position: absolute;
   left: 45%;
-  top: 45%;
+  top: 60%;
   margin-right: 25px;
   min-width: 440px;
   max-width: 675px;
 
   @media (max-width: 835px) {
     left: 13%;
-    top: 0;
+    top: 80px;
+  }
+
+  @media (max-width: 550px) {
+    left: 5%;
+    min-width: 0;
+    max-width: 100%;
+
   }
 }
 
@@ -61,6 +68,15 @@
 
   &:active {
     box-shadow: none;
+  }
+
+  @media (max-width: 550px) {
+    display: block;
+    text-align: center;
+
+    &:first-child {
+      margin: 0 0 20px 0;
+    }
   }
 }
 

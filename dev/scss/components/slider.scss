@@ -22,7 +22,7 @@
 /* ---------- controls ---------- */
 .slider_control {
   @include vcenter();
-  @include circle(54px, rgba(#4bcaff, 0.1));
+  @include circle(54px, rgba(#4bcaff, 0.2));
   left: 100px;
   z-index: 10;
   color: #fff;
@@ -39,6 +39,11 @@
 
   &:hover {
     background: #4bcaff;
+  }
+
+
+  @media (max-width: 835px) {
+    top: 70%;
   }
 }
 

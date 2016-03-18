@@ -4,6 +4,10 @@
   max-width: 1155px;
   padding: 0 10px;
   position: relative;
+
+  @media (max-width: 815px) {
+    width: 90%;
+  }
 }
 
 .right {

@@ -1,6 +1,8 @@
 .features {
   padding-top: 28px;
+  padding-bottom: 80px;
   text-align: center;
+  background: #f9f9f9;
 }
 
 .features_title {
@@ -38,6 +40,9 @@
   }
 }
 
+.features_link {
+  text-decoration: none;
+}
 .features_list-title {
   @include font(15, $lato-black, #414042);
   margin-bottom: 23px;

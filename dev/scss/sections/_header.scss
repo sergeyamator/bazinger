@@ -1,8 +1,8 @@
 .header {
-  // TODO
-  display: none;
-  position: relative;
-  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+  width: 100%;
 }
 
 /* ------ logo ------ */

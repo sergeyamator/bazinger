@@ -16,13 +16,16 @@
     ];
 
 
-    var sl = new Slider({
+    /**
+     * Call slider
+     */
+    new Slider({
       element: $('[data-component="slider"]'),
       imgSrc: heroImgArr,
       controls: true,
-      pager: true,
-      //auto: true,
-      autoTime: 3000
+      pager: true
+    /*  auto: true,
+      autoTime: 3000*/
     });
   }
 

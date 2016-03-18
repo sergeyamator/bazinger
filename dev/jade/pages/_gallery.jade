@@ -1,0 +1,21 @@
+section.gallery
+  .container
+    h2.features_title <span class="features_title--lighted">show the gallery </span> <br> summarise what
+      | your product is all about
+
+    -
+      list = [
+      "Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.",
+      "Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.",
+      "Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.",
+      "Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar."
+      ]
+
+    ul.features_list
+      each val, index in list
+        li.features_item.features_item--gallery
+          a(href="#" class="gallery_link")
+            figure.gallery_img-wrapper
+              img(src="/assets/img/gallery.jpg"  class="gallery_img" alt="#")
+              figcaption.gallery_figcaption screen shot
+            p.features_list-text= val
