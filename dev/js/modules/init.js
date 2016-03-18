@@ -19,12 +19,11 @@
     /**
      * Call slider
      */
-    new Slider({
-      element: $('[data-component="slider"]'),
+    new Slider($('[data-component="slider"]'), {
       imgSrc: heroImgArr,
       controls: true,
       pager: true
-    /*  auto: true,
+   /*   auto: true,
       autoTime: 3000*/
     });
   }

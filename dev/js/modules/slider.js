@@ -1,25 +1,62 @@
 var Slider = (function($) {
   'use strict';
 
-  function Slider(opt) {
-    this.el     = opt.element;
+  var d = {
+    autoTime: 3000,
+    pager: false
+  };
+
+  function Slider(el, opt) {
+
+    if (!el) {
+      throw new Error('');
+    }
+
+    this.el = el;
     this.items  = this.el.find('.slider_item');
-    this.imgSrc = opt.imgSrc;
-    this.pager  = false;
+    this.options = $.extend({}, opt, d);
+    this.timerId = null;
 
     this.renderList();
 
-    if (opt.controls) this.renderControls();
-    if (opt.pager) this.renderPager();
-    if (opt.auto) this.changeAutoNext(opt.autoTime || 3000);
+    opt.controls && this.renderControls();
+    opt.pager && this.renderPager();
+    opt.auto && this.changeAutoNext(opt.autoTime || 3000);
 
+    this.attachEvent();
   }
+
+
+  var fn = Slider.prototype;
+  fn.attachEvent = function() {
+    this.leftCtl.on('click', function(e) {
+      e.preventDefault();
+
+      clearInterval(this.timerId);
+      this.changeAutoNext();
+      this.changePrevSlide();
+
+
+    }.bind(this));
+
+    this.rigthtCtl.on('click', function(e) {
+      e.preventDefault();
+
+      clearInterval(this.timerId);
+      this.changeAutoNext();
+      this.changeNextSlide();
+
+    }.bind(this));
+
+    this.pagerList.on('click', '.slider_pager-link', this.changeSlideByPager.bind(this));
+  };
+
 
   /**
    * render list, item and img
    */
-  Slider.prototype.renderList = function() {
-    var src = this.imgSrc;
+  fn.renderList = function() {
+    var src = this.options.imgSrc;
     this.el.addClass('slider');
 
     this.items.each(function(item) {
@@ -33,27 +70,23 @@ var Slider = (function($) {
   /**
    * If opt.controls true render left and right controls
    */
-  Slider.prototype.renderControls = function() {
-    this.leftCtl   = $('<a href="#" data-direction="left" class="slider_control slider_control--left"> < </a>');
-    this.rigthtCtl = $('<a href="#" data-direction="right" class="slider_control slider_control--right"> > </a>');
+  fn.renderControls = function() {
+    this.leftCtl   = $('<a href="#"  class="slider_control slider_control--left">&lt;</a>');
+    this.rigthtCtl = $('<a href="#"  class="slider_control slider_control--right">&gt;</a>');
 
     this.el.append(this.leftCtl);
     this.el.append(this.rigthtCtl);
-
-    /* -------- attach click  ------- */
-    $('.slider_control').on('click', function(e) {
-      Slider.prototype.changeSlide.call(Slider, $('.slider_control'), e);
-    });
-
   };
 
 
   /**
    * If opt.pager true render pager dots control
    */
-  Slider.prototype.renderPager = function() {
+  fn.renderPager = function() {
     this.pager    = true;
-    var pagerList = $('<ul class="slider_pager-list">');
+    this.pagerList = $('<ul class="slider_pager-list">');
+
+    var self = this.pagerList;
 
     this.items.each(function(item) {
       var pageElement = $('<li class="slider_pager-item">' +
@@ -63,28 +96,14 @@ var Slider = (function($) {
         pageElement.addClass('active');
       }
 
-      pagerList.append(pageElement);
+      self.append(pageElement);
     });
 
-    this.el.append(pagerList);
+    this.el.append(this.pagerList);
 
-    pagerList.on('click', '.slider_pager-link', $.proxy(this.changeSlideByPager, this));
+
   };
 
-  /**
-   * change slide picture after click for arrow buttons
-   */
-
-  Slider.prototype.changeSlide = function(item, e) {
-    e.preventDefault();
-
-    if (item.hasClass('slider_control')) {
-
-      $(e.target).hasClass('slider_control--right') ?
-        Slider.prototype.changeNextSlide() :
-        Slider.prototype.changePrevSlide();
-    }
-  };
 
   /**
    *
@@ -92,7 +111,7 @@ var Slider = (function($) {
    *
    * Set active slide by number
    */
-  Slider.prototype.changeSliderByNumber = function(count) {
+  fn.changeSliderByNumber = function(count) {
     $(this.el)
       .find('.slider_item')
       .eq(count).addClass('active')
@@ -107,7 +126,7 @@ var Slider = (function($) {
    * Show next slide
    */
 
-  Slider.prototype.changeNextSlide = function() {
+  fn.changeNextSlide = function() {
     var currentSlide = $('.slider_item.active'),
         nextSlide    = currentSlide.next(),
         indexSlide   = nextSlide.index();
@@ -128,7 +147,7 @@ var Slider = (function($) {
    * Show previous slide
    */
 
-  Slider.prototype.changePrevSlide = function() {
+  fn.changePrevSlide = function() {
     var currentSlide = $('.slider_item.active'),
         prevSlide    = currentSlide.prev(),
         indexSlide   = prevSlide.index();
@@ -151,7 +170,7 @@ var Slider = (function($) {
    *
    * Change active pager dot by number
    */
-  Slider.prototype.changePagerActive = function(numberSlide) {
+  fn.changePagerActive = function(numberSlide) {
     $('.slider_pager-item')
       .eq(numberSlide)
       .addClass('active')
@@ -159,7 +178,7 @@ var Slider = (function($) {
       .removeClass('active');
   };
 
-  Slider.prototype.changeSlideByPager = function(e) {
+  fn.changeSlideByPager = function(e) {
     e.preventDefault();
 
     var currentTarget = $(e.target),
@@ -178,8 +197,8 @@ var Slider = (function($) {
    * If opt auto true slider will be automatically change slide
    */
 
-  Slider.prototype.changeAutoNext = function(time) {
-    setInterval($.proxy(this.changeNextSlide, this), time);
+  fn.changeAutoNext = function() {
+    this.timerId = setInterval(this.changeNextSlide.bind(this), this.options.autoTime);
   };
 
   return Slider;
