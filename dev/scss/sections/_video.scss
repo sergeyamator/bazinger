@@ -1,0 +1,41 @@
+.video {
+  position: relative;
+  min-height: 550px;
+}
+
+.video_container {
+  position: absolute;
+  max-width: 770px;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+}
+
+.video_title {
+  @include font(48, $lato-light, #fff);
+  white-space: nowrap;
+  margin-bottom: 35px;
+
+  &--lighted {
+    font-family: $lato-bold;
+  }
+
+  @media (max-width: 800px) {
+    white-space: normal;
+  }
+}
+
+.video_text{
+  @include font(18, $lato-light, #fff);
+}
+
+.video_content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.video_content-iframe {
+  width: 100%;
+  height: 100%;
+}

@@ -1,6 +1,6 @@
-section.features
+section.content
   .container
-    h2.features_title <span class="features_title--lighted"> summarise the features </span> <br> summarise what
+    h2.content_title <span class="content_title--lighted"> summarise the content </span> <br> summarise what
       | your product is all about
 
     -
@@ -12,13 +12,13 @@ section.features
       }
     -
       icons = ['thumb_up', 'stay_primary_portrait', 'question_answer','chat_bubble_outline']
-    ul.features_list
+    ul.content_list
       - var count=0
       each text, title in list
-        li.features_item
-          a.features_link(href="#")
+        li.content_item
+          a.content_link(href="#")
             .icon
-              i(class="material-icons features_icon")= icons[count]
-            .features_list-title= title
-            p.features_list-text= text
+              i(class="material-icons content_icon")= icons[count]
+            .content_list-title= title
+            p.content_list-text= text
             - count++

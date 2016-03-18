@@ -1,11 +1,11 @@
-.features {
+.content {
   padding-top: 28px;
   padding-bottom: 80px;
   text-align: center;
   background: #f9f9f9;
 }
 
-.features_title {
+.content_title {
   @include font(20, $lato-light, #414042);
   margin-bottom: 72px;
   display: inline-block;
@@ -15,7 +15,7 @@
   }
 }
 
-.features_item {
+.content_item {
   display: inline-block;
   width: 230px;
   padding: 0 28px;
@@ -34,22 +34,22 @@
       background: #414042;
     }
 
-    .features_list-title {
+    .content_list-title {
       color: #57cdff;
     }
   }
 }
 
-.features_link {
+.content_link {
   text-decoration: none;
 }
-.features_list-title {
+.content_list-title {
   @include font(15, $lato-black, #414042);
   margin-bottom: 23px;
   text-transform: uppercase;
   transition: 0.2s;
 }
-.features_list-text {
+.content_list-text {
   @include font(13, $lato-reg, #838383);
   line-height: 21px;;
 }
@@ -63,7 +63,7 @@
   transition: 0.2s;
 }
 
-.features_icon {
+.content_icon {
   @include center();
   font-size: 75px;
   color: #fff;
