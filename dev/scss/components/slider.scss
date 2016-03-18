@@ -10,10 +10,12 @@
 .slider_item {
   position: absolute;
   background-size: cover;
-  transition: 0.3s;
+  opacity: 0;
+  transition: 0.4s;
 
   &.active {
     z-index: 5;
+    opacity: 1;
   }
 }
 

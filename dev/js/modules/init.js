@@ -10,9 +10,9 @@
 
     var heroImgArr = [
       '/assets/img/hero-slider/1.png',
-      '/assets/img/hero-slider/1.png',
-      '/assets/img/hero-slider/1.png',
-      '/assets/img/hero-slider/2.png'
+      '/assets/img/hero-slider/pic2.jpg',
+      '/assets/img/hero-slider/pic3.jpg',
+      '/assets/img/hero-slider/pic4.jpg'
     ];
 
 
@@ -20,7 +20,9 @@
       element: $('[data-component="slider"]'),
       imgSrc: heroImgArr,
       controls: true,
-      pager: true
+      pager: true,
+      //auto: true,
+      autoTime: 3000
     });
   }
 

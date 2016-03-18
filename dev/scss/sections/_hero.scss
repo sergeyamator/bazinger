@@ -15,6 +15,11 @@
   margin-right: 25px;
   min-width: 440px;
   max-width: 675px;
+
+  @media (max-width: 835px) {
+    left: 13%;
+    top: 0;
+  }
 }
 
 .hero_title {

@@ -2,7 +2,7 @@
   "name": "template",
   "version": "0.0.1",
   "scripts": {
-    "postinstall": "bower install"
+    "postinstall": "bower install && gulp assets-copy"
   },
   "devDependencies": {
     "browser-sync": "^2.10.0",
