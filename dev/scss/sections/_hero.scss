@@ -11,7 +11,7 @@
 .hero_slogan {
   position: absolute;
   left: 45%;
-  top: 50%;
+  bottom: 10%;
   margin-right: 25px;
   min-width: 440px;
   max-width: 675px;
@@ -31,6 +31,7 @@
 
 .hero_title {
   @include font(48, $lato-hairline, #fff);
+  margin-top: 0;
   margin-bottom: 20px;
 
   &--lighted {

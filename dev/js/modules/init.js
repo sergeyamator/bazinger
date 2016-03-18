@@ -22,9 +22,9 @@
     new Slider($('[data-component="slider"]'), {
       imgSrc: heroImgArr,
       controls: true,
-      pager: true
-   /*   auto: true,
-      autoTime: 3000*/
+      pager: true,
+      auto: true,
+      autoTime: 3000
     });
   }
 
