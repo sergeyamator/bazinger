@@ -17,10 +17,14 @@
     var $this = $(this),
         currentItem = $this.closest('.package_item');
 
-    currentItem
-      .addClass('active')
-      .siblings()
-      .removeClass('active');
+    if (currentItem.hasClass('active')) {
+      currentItem.removeClass('active')
+    } else {
+      currentItem
+        .addClass('active')
+        .siblings()
+        .removeClass('active');
+    }
   }
 
 
