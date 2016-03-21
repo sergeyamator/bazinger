@@ -3,6 +3,16 @@
   padding: 50px 155px;
   background: #414042;
   text-align: center;
+
+  @media (max-width: 850px) {
+    padding: 30px 100px;
+  }
+
+  @media (max-width: 500px) {
+    float: none;
+    margin-bottom: 15px;
+    padding: 15px 30px;
+  }
 }
 
 .copyright {

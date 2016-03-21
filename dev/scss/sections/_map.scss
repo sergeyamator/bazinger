@@ -6,6 +6,7 @@
 .map_iframe {
   min-height: 680px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 
@@ -60,8 +61,8 @@
   border: none;
   border-radius: 6px;
   background: #414042;
-  text-transform: uppercase;
   color: #72b3cc;
+  text-transform: none;
   box-shadow: 0 3px 0 0 darken(rgba(#414042, 0.8), 10%);
 
   &:hover {

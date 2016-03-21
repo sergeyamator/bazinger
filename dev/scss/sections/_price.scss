@@ -36,6 +36,10 @@
       background: #fd7c00;
     }
   }
+
+  @media (max-width: 390px) {
+    box-sizing: border-box;
+  }
 }
 
 .package_item-inner {
@@ -53,7 +57,7 @@
 
 .package_price {
   @include font(85, $drod-bold, #fff);
-  padding: 45px 0;
+  padding: 15px 0;
   background: #91c46b;
 }
 

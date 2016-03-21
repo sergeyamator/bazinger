@@ -26,7 +26,7 @@
     left: 5%;
     min-width: 0;
     max-width: 100%;
-
+    min-height: 300px;
   }
 }
 
@@ -38,6 +38,11 @@
   &--lighted {
     font-family: $lato-bold;
   }
+
+  @media (max-width: 550px) {
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+  }
 }
 
 .hero_text {
@@ -47,6 +52,10 @@
 
 .hero_buttons {
   margin-bottom: 55px;
+
+  @media (max-width: 400px) {
+    text-align: center;
+  }
 }
 
 .hero_button {
@@ -75,6 +84,17 @@
   @media (max-width: 550px) {
     display: block;
     text-align: center;
+
+    &:first-child {
+      margin: 0 0 20px 0;
+    }
+  }
+  @media (max-width: 400px) {
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    font-size: 0.9rem;
 
     &:first-child {
       margin: 0 0 20px 0;

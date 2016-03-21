@@ -45,10 +45,6 @@
     position: absolute;
     bottom: 20px;
     z-index: 10;
-
-    @media (max-width: 725px) {
-      bottom: 5px;
-    }
   }
 
   .slider_pager-item {
@@ -123,6 +119,10 @@
     @include hcenter();
     z-index: 5;
     bottom: 23px;
+
+    @media (max-width: 725px) {
+      bottom: 30px;
+    }
   }
 }
 
@@ -130,4 +130,8 @@
   position: relative;
   width: 550px;
   display: inline-block;
+
+  @media (max-width: 655px) {
+    width: 100%;
+  }
 }
