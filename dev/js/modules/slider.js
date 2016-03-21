@@ -9,7 +9,7 @@ var Slider = (function($) {
   function Slider(el, opt) {
 
     if (!el) {
-      throw new Error('');
+      throw new Error('There are not elements');
     }
 
     this.el = el;
@@ -29,26 +29,34 @@ var Slider = (function($) {
 
   var fn = Slider.prototype;
   fn.attachEvent = function() {
-    this.leftCtl.on('click', function(e) {
-      e.preventDefault();
 
-      clearInterval(this.timerId);
-      this.changeAutoNext();
-      this.changePrevSlide();
+    if (this.leftCtl) {
+      this.leftCtl.on('click', function(e) {
+        e.preventDefault();
 
+        clearInterval(this.timerId);
+        this.changeAutoNext();
+        this.changePrevSlide();
 
-    }.bind(this));
+      }.bind(this));
+    }
 
-    this.rigthtCtl.on('click', function(e) {
-      e.preventDefault();
+    if (this.rigthtCtl) {
+      this.rigthtCtl.on('click', function(e) {
+        e.preventDefault();
 
-      clearInterval(this.timerId);
-      this.changeAutoNext();
-      this.changeNextSlide();
+        clearInterval(this.timerId);
+        this.changeAutoNext();
+        this.changeNextSlide();
 
-    }.bind(this));
+      }.bind(this));
+
+    }
+
 
     this.pagerList.on('click', '.slider_pager-link', this.changeSlideByPager.bind(this));
+
+
   };
 
 
@@ -56,8 +64,11 @@ var Slider = (function($) {
    * render list, item and img
    */
   fn.renderList = function() {
-    var src = this.options.imgSrc;
     this.el.addClass('slider');
+
+    if (!this.options.imgSrc) return;
+
+    var src = this.options.imgSrc;
 
     this.items.each(function(item) {
 
@@ -86,6 +97,7 @@ var Slider = (function($) {
     this.pager    = true;
     this.pagerList = $('<ul class="slider_pager-list">');
 
+
     var self = this.pagerList;
 
     this.items.each(function(item) {
@@ -101,7 +113,6 @@ var Slider = (function($) {
 
     this.el.append(this.pagerList);
 
-
   };
 
 
@@ -112,7 +123,7 @@ var Slider = (function($) {
    * Set active slide by number
    */
   fn.changeSliderByNumber = function(count) {
-    $(this.el)
+    this.el
       .find('.slider_item')
       .eq(count).addClass('active')
       .siblings()
@@ -127,7 +138,7 @@ var Slider = (function($) {
    */
 
   fn.changeNextSlide = function() {
-    var currentSlide = $('.slider_item.active'),
+    var currentSlide = this.el.find('.slider_item.active'),
         nextSlide    = currentSlide.next(),
         indexSlide   = nextSlide.index();
 
@@ -148,7 +159,7 @@ var Slider = (function($) {
    */
 
   fn.changePrevSlide = function() {
-    var currentSlide = $('.slider_item.active'),
+    var currentSlide = this.el.find('.slider_item.active'),
         prevSlide    = currentSlide.prev(),
         indexSlide   = prevSlide.index();
 
@@ -171,7 +182,7 @@ var Slider = (function($) {
    * Change active pager dot by number
    */
   fn.changePagerActive = function(numberSlide) {
-    $('.slider_pager-item')
+    this.el.find('.slider_pager-item')
       .eq(numberSlide)
       .addClass('active')
       .siblings()
@@ -180,6 +191,8 @@ var Slider = (function($) {
 
   fn.changeSlideByPager = function(e) {
     e.preventDefault();
+    clearInterval(this.timerId);
+    this.changeAutoNext();
 
     var currentTarget = $(e.target),
         item          = currentTarget.closest('.slider_pager-item');

@@ -23,7 +23,7 @@
 
 
     /**
-     * Call slider
+     * Call hero slider
      */
     new Slider($('[data-component="slider"]'), {
       imgSrc: heroImgArr,
@@ -41,6 +41,17 @@
 
   if ($('.package_list').length) {
     priceZoom.init();
+  }
+
+
+  /**
+   * Call testimonials slider
+   */
+
+  if ($('[data-component="testimonials-slider"]').length) {
+    new Slider($('[data-component="testimonials-slider"]'), {
+      pager: true
+    });
   }
 
 

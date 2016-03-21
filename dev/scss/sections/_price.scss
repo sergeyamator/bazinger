@@ -1,8 +1,12 @@
+.price {
+  background: #fff;
+}
+
 .package_item {
   display: inline-block;
   width: 300px;
   margin-bottom: 30px;
-  padding: 0 20px 0 0;
+  padding: 0 10px;
   transition: 0.3s;
 
   &.active {
