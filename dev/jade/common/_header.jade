@@ -6,6 +6,7 @@ header.header
       h1.header_text bezinger
 
     .header_menu
-      - var list = ['home', 'content', 'gallery', 'video', 'prices', 'testimonials', 'download', 'contact']
-        +list(list, 'header', 0)
+      - var list = ['home', 'summarise', 'gallery', 'video', 'prices', 'testimonials', 'download', 'contact']
+      - var href = ['#home', '#summarise', '#gallery', '#video', '#prices', '#testimonials', '#download', '#contact'];
+        +list(list, 'header', 0, href)
       span.hamburger

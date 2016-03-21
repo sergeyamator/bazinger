@@ -30,6 +30,7 @@ var paths = {
     location: [
       'bower_components/jquery/dist/jquery.js',
       'dev/js/modules/send.js',
+      'dev/js/modules/navigation.js',
       'dev/js/modules/header-menu.js',
       'dev/js/modules/priceZoom.js',
       'dev/js/modules/slider.js',

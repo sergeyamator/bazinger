@@ -1,14 +1,14 @@
 
-mixin list(items, className, active)
+mixin list(items, className, active, href)
     nav(class="#{className}_nav")
         ul(class="#{className}_list")
             each item, key in items
                 if key == active
                     li(class="#{className}_item #{className}_item--active")
-                        a(href="#" class="#{className}_link")= item
+                        a(href="#{href[key]}" class="#{className}_link")= item
                 else
                     li(class="#{className}_item")
-                        a(href="#" class="#{className}_link")= item
+                        a(href="#{href[key]}" class="#{className}_link")= item
 
 
 
