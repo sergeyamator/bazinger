@@ -2,6 +2,10 @@
   background: #f9f9f9;
   padding-bottom: 12px;
 
+  @media (max-width: 725px) {
+    padding-bottom: 50px;
+  }
+
   .content_title {
     margin-bottom: 45px;
   }
@@ -9,6 +13,8 @@
 
 .testimonials_content {
   width: 350px;
+
+
 }
 
 .testimonials_icon-wrapper {
@@ -20,9 +26,15 @@
   &:after, &:before {
     border-radius: 5px;
   }
+
+  @media (max-width: 725px) {
+    display: block;
+    margin: 0 auto 40px;
+  }
 }
 
 .testimonials_item {
+
   &:nth-child(2) {
     .testimonials_icon-wrapper {
       @include hexagon(140px, 100px, #91c46b);
@@ -43,6 +55,10 @@
     }
   }
 
+  @media (max-width: 725px) {
+    @include hcenter();
+  }
+
 }
 
 .testimonials_icon {
@@ -58,6 +74,11 @@
 .testimonials_content {
   display: inline-block;
   margin-left: 30px;
+
+  @media (max-width: 725px) {
+    display: block;
+    margin-bottom: 25px;
+  }
 }
 
 .testimonials_text {

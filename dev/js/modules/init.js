@@ -55,5 +55,14 @@
   }
 
 
+  /**
+   * Form send
+   */
+
+  if ($('.js-map_form').length) {
+    formAjax.init($('.js-map_form'));
+  }
+
+
 
 }(jQuery));

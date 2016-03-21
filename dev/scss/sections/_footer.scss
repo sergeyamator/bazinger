@@ -1,3 +1,41 @@
 .footer {
+  @include font(12, $lato-reg, #797879);
+  padding: 50px 155px;
+  background: #414042;
+  text-align: center;
+}
 
+.copyright {
+  float: left;
+
+  @media (max-width: 850px) {
+    float: none;
+    margin-bottom: 15px;
+  }
+}
+
+.terms {
+  float: right;
+
+  @media (max-width: 850px) {
+    float: none;
+  }
+}
+
+.terms_link {
+  @include font(12, $lato-reg, #797879);
+  text-decoration: none;
+
+  &:first-child {
+
+    &:after {
+      content: '|';
+      display: inline-block;
+      margin: 0 2px 0 5px;
+    }
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

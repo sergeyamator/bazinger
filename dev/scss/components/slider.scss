@@ -34,7 +34,7 @@
     }
 
     @media (max-width: 835px) {
-      top: 70%;
+      top: 80%;
     }
   }
 
@@ -45,6 +45,10 @@
     position: absolute;
     bottom: 20px;
     z-index: 10;
+
+    @media (max-width: 725px) {
+      bottom: 5px;
+    }
   }
 
   .slider_pager-item {
@@ -117,11 +121,13 @@
 
   .slider_pager-list {
     @include hcenter();
+    z-index: 5;
     bottom: 23px;
   }
 }
 
 .testimonials_list {
+  position: relative;
   width: 550px;
   display: inline-block;
 }

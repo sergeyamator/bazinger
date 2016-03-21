@@ -10,14 +10,15 @@
 
 .hero_slogan {
   position: absolute;
-  left: 45%;
-  bottom: 10%;
+  right: 100px;
+  bottom: 130px;
   margin-right: 25px;
   min-width: 440px;
   max-width: 675px;
 
   @media (max-width: 835px) {
-    left: 13%;
+    left: 50px;
+    right: auto;
     top: 80px;
   }
 

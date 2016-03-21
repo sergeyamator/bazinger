@@ -1,0 +1,17 @@
+.map
+  .map_google-map
+    iframe.map_iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19869.055032796605!2d31.292488799999997!3d51.501622499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x5e04791e1a8e1157!2z0KfQtdGA0L3QuNCz0L7QstGB0LrQuNC5INCz0L7RgdGD0LTQsNGA0YHRgtCy0LXQvdC90YvQuSDRhtC10L3RgtGAINC90LDRg9C60LgsINC40L3QvdC-0LLQsNGG0LjQuSDQuCDQuNC90YTQvtGA0LzQsNGC0LjQt9Cw0YbQuNC4!5e0!3m2!1sru!2sua!4v1458564600732" width="600" height="450" frameborder="0" style="border:0" allowfullscreen)
+  .map_contacts
+    .map_form-wrapper
+      .map_contacts-title Contact
+      form.map_form.js-map_form(action="#" method="post")
+        label.map_label
+          input(type="text" name="name" placeholder="Your name")
+        label.map_label
+          input(type="email" name="email" placeholder="Your email")
+        label.map_label
+          input(type="text" name="subject" placeholder="Subject")
+        label.map_label.map_label--textarea
+          textarea.map_textarea(name="textarea" placeholder="Message")
+
+        button(type="submit").map_send-button Send

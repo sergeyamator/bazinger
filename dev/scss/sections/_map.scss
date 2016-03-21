@@ -1,0 +1,83 @@
+.map {
+  position: relative;
+  min-height: 680px;
+}
+
+.map_iframe {
+  min-height: 680px;
+  width: 100%;
+}
+
+
+.map_form-wrapper {
+  @include center();
+  width: 270px;
+  height: 460px;
+  padding: 25px 26px 15px;
+  background: rgba(#4bcaff, 0.7);
+  text-align: center;
+
+  input, textarea {
+    @include font(14, arial, darken(#d3d3d3, 25%));
+    @include placeholder(#d3d3d3);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px 10px;
+    border-radius: 3px;
+    text-align: center;
+    border: 0;
+
+  }
+}
+
+.map_label {
+  display: block;
+  margin-top: 12px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.map_contacts-title {
+  @include font(36, $lato-bold, #fff);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.map_textarea{
+  min-height: 145px;
+  resize: none;
+}
+
+.map_label--textarea {
+  margin-bottom: 15px;
+}
+
+.map_send-button {
+  @extend .question_button;
+  padding: 15px 75px;
+  border: none;
+  border-radius: 6px;
+  background: #414042;
+  text-transform: uppercase;
+  color: #72b3cc;
+  box-shadow: 0 3px 0 0 darken(rgba(#414042, 0.8), 10%);
+
+  &:hover {
+    background: lighten(#414042, 10%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.thank-you {
+  @include center();
+  @include font(36, $lato-bold, #fff);
+
+  &--error {
+    color: red;
+  }
+}
