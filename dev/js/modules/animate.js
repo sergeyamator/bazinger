@@ -3,7 +3,6 @@
 
   $(window).scroll(function() {
     $('.bcIn').each(function() {
-      console.log($(this));
       var imgPos = $(this).offset().top,
           topOfWindow = $(window).scrollTop();
 
@@ -14,31 +13,28 @@
 
 
     $('.zI').each(function() {
-      console.log($(this));
       var imgPos = $(this).offset().top,
           topOfWindow = $(window).scrollTop();
 
-      if (imgPos < topOfWindow + 900) {
+      if (imgPos < topOfWindow + 600) {
         $(this).addClass('zoomIn');
       }
     });
 
     $('.rub').each(function() {
-      console.log($(this));
       var imgPos = $(this).offset().top,
           topOfWindow = $(window).scrollTop();
 
-      if (imgPos < topOfWindow + 900) {
+      if (imgPos < topOfWindow + 600) {
         $(this).addClass('rubberBand');
       }
     });
 
     $('.slL').each(function() {
-      console.log($(this));
       var imgPos = $(this).offset().top,
           topOfWindow = $(window).scrollTop();
 
-      if (imgPos < topOfWindow + 900) {
+      if (imgPos < topOfWindow + 600) {
         $(this).addClass('slideInLeft');
       }
     });
