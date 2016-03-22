@@ -1,10 +1,10 @@
-section.content.price(data-section="prices")
+section.content.price(data-section="prices").animate
   .container
     h2.content_title <span class="content_title--lighted">choose your price</span> <br> summarise what
       | your product is all about
 
     ul.package_list
-      li.package_item
+      li.package_item.bcIn.animated
         .package_item-inner
           .package_title basic package
           .package_price 20$
@@ -15,7 +15,7 @@ section.content.price(data-section="prices")
 
           a(href="#").package_link purchase
 
-      li.package_item.package_item--professional
+      li.package_item.package_item--professional.bcIn.animated
         .package_item-inner
           .package_title professional package
           .package_price 25$
@@ -26,7 +26,7 @@ section.content.price(data-section="prices")
 
           a(href="#").package_link purchase
 
-      li.package_item.package_item--advanced
+      li.package_item.package_item--advanced.bcIn.animated
         .package_item-inner
           .package_title Advanced package
           .package_price 30$

@@ -33,6 +33,7 @@ var paths = {
       'dev/js/modules/navigation.js',
       'dev/js/modules/header-menu.js',
       'dev/js/modules/priceZoom.js',
+      'dev/js/modules/animate.js',
       'dev/js/modules/slider.js',
       'dev/js/modules/init.js'
     ],
@@ -71,7 +72,7 @@ gulp.task('concat-js', function() {
   return gulp.src(paths.js.location)
     .pipe(sourcemaps.init())
     .pipe(concat('main.min.js'))
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.js.destination));
 });
