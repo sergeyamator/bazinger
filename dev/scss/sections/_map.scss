@@ -29,13 +29,17 @@
     border: 0;
 
   }
+
+  @media (max-width: 340px) {
+    width: 265px;
+  }
 }
 
 .map_label {
   display: block;
-  margin-top: 12px;
+  margin-bottom: 12px;
 
-  &:first-child {
+  &:last-child {
     margin-top: 0;
   }
 }

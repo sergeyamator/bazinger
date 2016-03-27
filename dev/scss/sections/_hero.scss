@@ -11,15 +11,16 @@
 .hero_slogan {
   position: absolute;
   right: 100px;
-  bottom: 130px;
+  bottom: 100px;
   margin-right: 25px;
   min-width: 440px;
   max-width: 675px;
 
   @media (max-width: 835px) {
+    @include rem-size(16);
     left: 50px;
     right: auto;
-    top: 80px;
+    top: 100px;
   }
 
   @media (max-width: 550px) {
@@ -39,7 +40,7 @@
     font-family: $lato-bold;
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 835px) {
     font-size: 1.5rem;
     line-height: 1.7rem;
   }
@@ -48,10 +49,18 @@
 .hero_text {
   @include font(18, $lato-light, #fff);
   margin-bottom: 45px;
+
+  @media (max-width: 835px) {
+    margin-bottom: 30px;
+  }
 }
 
 .hero_buttons {
   margin-bottom: 55px;
+
+  @media (max-width: 1000px) {
+    margin-bottom: 20px;
+  }
 
   @media (max-width: 400px) {
     text-align: center;
@@ -83,6 +92,7 @@
 
   @media (max-width: 550px) {
     display: block;
+    padding: 10px 50px;
     text-align: center;
 
     &:first-child {
@@ -99,6 +109,12 @@
     &:first-child {
       margin: 0 0 20px 0;
     }
+  }
+}
+
+.hero_available {
+  @media (max-width: 500px) {
+    display: none;
   }
 }
 

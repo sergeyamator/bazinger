@@ -13,8 +13,9 @@
 
   /* ---------- controls ---------- */
   .slider_control {
-    @include vcenter();
     @include circle(54px, rgba(#4bcaff, 0.2));
+    position: absolute;
+    top: 40%;
     left: 100px;
     z-index: 10;
     color: #fff;
@@ -33,7 +34,7 @@
       background: #4bcaff;
     }
 
-    @media (max-width: 835px) {
+    @media (max-width: 1000px) {
       top: 80%;
     }
   }
@@ -120,7 +121,7 @@
     z-index: 5;
     bottom: 23px;
 
-    @media (max-width: 725px) {
+    @media (max-width: 1000px) {
       bottom: 30px;
     }
   }
